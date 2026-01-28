@@ -1,0 +1,107 @@
+body {
+  background: radial-gradient(circle at top, #1a001a, #000);
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  color: white;
+}
+
+/* Outer border */
+.marquee {
+  padding: 12px;
+  border-radius: 24px;
+  background: repeating-linear-gradient(
+    45deg,
+    #ff3b3b 0 14px,
+    #fff 14px 28px
+  );
+  box-shadow: 0 0 18px rgba(255,0,0,0.6);
+}
+
+/* Cabinet */
+.cabinet {
+  background: #050505;
+  border-radius: 18px;
+  padding: 18px;
+  width: 370px;
+  border: 4px solid gold;
+  box-shadow: inset 0 0 18px rgba(255,204,0,0.6);
+}
+
+/* Screen */
+.screen {
+  background: #000;
+  padding: 14px;
+  border-radius: 12px;
+  border: 2px solid #00ffee;
+  box-shadow: inset 0 0 12px rgba(0,255,238,0.4);
+}
+
+/* Title */
+.title {
+  font-family: 'Monoton', cursive;
+  font-size: 30px;
+  text-align: center;
+  color: gold;
+  text-shadow: 0 0 6px rgba(255,215,0,0.8);
+}
+
+/* Total */
+#total {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 38px;
+  text-align: center;
+  margin-top: 10px;
+  color: #00ffcc;
+}
+
+/* Rake */
+.rake {
+  margin-top: 8px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+  color: #ff5555;
+}
+
+/* Buttons */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 20px;
+}
+
+/* Chips */
+.chip {
+  height: 76px;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: bold;
+  border: 4px dashed white;   /* SAME BORDER FOR ALL */
+  cursor: pointer;
+  box-shadow: inset 0 0 10px rgba(255,255,255,0.35);
+  transition: transform 0.08s ease;
+}
+
+.chip:active {
+  transform: scale(0.9);
+}
+
+/* Chip colors */
+.red { background: crimson; }
+.blue { background: dodgerblue; }
+.green { background: seagreen; }
+.purple { background: rebeccapurple; }
+.gold { background: goldenrod; color: black; }
+.orange { background: #ff8c00; color: black; }
+.silver { background: silver; color: black; }
+
+/* Controls */
+#clear, #back {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
+  border-radius: 10px;
+  background: #111;
+  color: white;
+  border: 2px solid red;
+}
