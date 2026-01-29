@@ -6,15 +6,19 @@ const totalDisplay = document.getElementById("total");
 const rakeDisplay = document.getElementById("rake");
 const historyList = document.getElementById("historyList");
 
-/* Sound */
-const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+/* SAFETY CHECK */
+if (!historyList) {
+  console.error("History list not found");
+}
 
+/* SOUND */
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 function coinSound(freq) {
   const osc = audioCtx.createOscillator();
   const gain = audioCtx.createGain();
   osc.type = "triangle";
   osc.frequency.value = freq;
-  gain.gain.value = 0.07;
+  gain.gain.value = 0.06;
   osc.connect(gain).connect(audioCtx.destination);
   osc.start();
   osc.stop(audioCtx.currentTime + 0.1);
@@ -31,7 +35,7 @@ function updateHistory() {
   historyList.innerHTML = "";
   historyTotals.slice(-5).reverse().forEach(val => {
     const li = document.createElement("li");
-    li.innerText = val;
+    li.textContent = val;
     historyList.appendChild(li);
   });
 }
@@ -47,7 +51,7 @@ document.querySelectorAll(".chip").forEach(btn => {
   });
 });
 
-/* CLEAR */
+/* CLEAR (THIS IS WHAT ADDS TO HISTORY) */
 document.getElementById("clear").addEventListener("click", () => {
   if (total > 0) {
     historyTotals.push(total);
@@ -61,7 +65,7 @@ document.getElementById("clear").addEventListener("click", () => {
 
 /* BACK */
 document.getElementById("back").addEventListener("click", () => {
-  if (history.length) {
+  if (history.length > 0) {
     coinSound(320);
     total -= history.pop();
     updateDisplay();
