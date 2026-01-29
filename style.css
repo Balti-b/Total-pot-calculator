@@ -1,52 +1,63 @@
-body {
-  background: radial-gradient(circle at top, #1a001a, #000);
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-  color: white;
+/* GLOBAL RESET (fix iPad blue buttons) */
+button {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: inherit;
 }
 
-/* Outer border */
+/* LANDSCAPE APP LAYOUT */
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #1a001a, #000);
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.app {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  padding: 12px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* MAIN FRAME */
 .marquee {
   padding: 12px;
   border-radius: 24px;
   background: repeating-linear-gradient(
     45deg,
     #ff3b3b 0 14px,
-    #fff 14px 28px
+    #ffffff 14px 28px
   );
   box-shadow: 0 0 18px rgba(255,0,0,0.6);
 }
 
-/* Cabinet */
 .cabinet {
-  background: #050505;
-  border-radius: 18px;
+  width: 360px;
   padding: 18px;
-  width: 370px;
+  border-radius: 18px;
+  background: #050505;
   border: 4px solid gold;
   box-shadow: inset 0 0 18px rgba(255,204,0,0.6);
 }
 
-/* Screen */
+/* SCREEN */
 .screen {
   background: #000;
   padding: 14px;
   border-radius: 12px;
   border: 2px solid #00ffee;
-  box-shadow: inset 0 0 12px rgba(0,255,238,0.4);
 }
 
-/* Title */
 .title {
   font-family: 'Monoton', cursive;
   font-size: 30px;
   text-align: center;
   color: gold;
-  text-shadow: 0 0 6px rgba(255,215,0,0.8);
 }
 
-/* Total */
 #total {
   font-family: 'Orbitron', sans-serif;
   font-size: 38px;
@@ -55,7 +66,6 @@ body {
   color: #00ffcc;
 }
 
-/* Rake */
 .rake {
   margin-top: 8px;
   font-family: 'Press Start 2P', cursive;
@@ -63,7 +73,7 @@ body {
   color: #ff5555;
 }
 
-/* Buttons */
+/* BUTTONS */
 .buttons {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -71,23 +81,22 @@ body {
   margin-top: 20px;
 }
 
-/* Chips */
 .chip {
   height: 76px;
   border-radius: 50%;
   font-size: 18px;
   font-weight: bold;
-  border: 4px dashed white;   /* SAME BORDER FOR ALL */
+  border: 4px dashed white;
   cursor: pointer;
+  background-clip: padding-box;
   box-shadow: inset 0 0 10px rgba(255,255,255,0.35);
-  transition: transform 0.08s ease;
 }
 
 .chip:active {
   transform: scale(0.9);
 }
 
-/* Chip colors */
+/* CHIP COLORS */
 .red { background: crimson; }
 .blue { background: dodgerblue; }
 .green { background: seagreen; }
@@ -96,7 +105,7 @@ body {
 .orange { background: #ff8c00; color: black; }
 .silver { background: silver; color: black; }
 
-/* Controls */
+/* CONTROLS */
 #clear, #back {
   font-family: 'Press Start 2P', cursive;
   font-size: 12px;
@@ -104,4 +113,35 @@ body {
   background: #111;
   color: white;
   border: 2px solid red;
+}
+
+/* HISTORY PANEL */
+.history {
+  width: 180px;
+  background: #000;
+  border: 3px solid gold;
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.history-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
+  color: gold;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.history ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.history li {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+  color: #00ffcc;
+  margin-bottom: 6px;
+  text-align: right;
 }
