@@ -2,36 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Casino Pot Arcade</title>
+  <title>Total Pot Calculator</title>
+
+  <!-- iPad / landscape friendly -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
   <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Orbitron:wght@600&family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="marquee">
-  <div class="cabinet">
-    <div class="screen">
-      <div class="title">TOTAL POT</div>
-      <div id="total">0</div>
-      <div class="rake">
-        RAKE (10%) → <span id="rake">0</span>
+<div class="app">
+  <!-- MAIN CALCULATOR -->
+  <div class="marquee">
+    <div class="cabinet">
+      <div class="screen">
+        <div class="title">TOTAL POT</div>
+        <div id="total">0</div>
+        <div class="rake">RAKE (10%) → <span id="rake">0</span></div>
+      </div>
+
+      <div class="buttons">
+        <button class="chip red" data-value="5">5</button>
+        <button class="chip blue" data-value="10">10</button>
+        <button class="chip green" data-value="15">15</button>
+
+        <button class="chip purple" data-value="20">20</button>
+        <button class="chip gold" data-value="25">25</button>
+        <button class="chip orange" data-value="50">50</button>
+
+        <button class="chip silver" data-value="100">100</button>
+        <button id="back">←</button>
+        <button id="clear">AC</button>
       </div>
     </div>
+  </div>
 
-    <div class="buttons">
-      <button class="chip red" data-value="5">5</button>
-      <button class="chip blue" data-value="10">10</button>
-      <button class="chip green" data-value="15">15</button>
-
-      <button class="chip purple" data-value="20">20</button>
-      <button class="chip gold" data-value="25">25</button>
-      <button class="chip orange" data-value="50">50</button>
-
-      <button class="chip silver" data-value="100">100</button>
-      <button id="back">←</button>
-      <button id="clear">AC</button>
-    </div>
+  <!-- HISTORY PANEL -->
+  <div class="history">
+    <div class="history-title">HISTORY</div>
+    <ul id="historyList"></ul>
   </div>
 </div>
 
