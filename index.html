@@ -4,24 +4,21 @@
   <meta charset="UTF-8">
   <title>Total Pot Calculator</title>
 
-  <!-- Normal responsive scaling (no forced landscape) -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-  <!-- App icon support -->
+  <!-- App icon -->
   <link rel="apple-touch-icon" href="icon1.png">
   <link rel="icon" href="icon1.png">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Orbitron:wght@600&family=Press+Start+2P&display=swap" rel="stylesheet">
 
-  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="app">
 
-  <!-- MAIN CALCULATOR -->
   <div class="marquee">
     <div class="cabinet">
       <div class="screen">
@@ -33,9 +30,9 @@
       </div>
 
       <div class="buttons">
-        <button class="chip red" data-value="5">5</button>
-        <button class="chip blue" data-value="10">10</button>
-        <button class="chip green" data-value="15">15</button>
+        <button class="chip red" data-value="1">1</button>
+        <button class="chip blue" data-value="5">5</button>
+        <button class="chip green" data-value="10">10</button>
 
         <button class="chip purple" data-value="20">20</button>
         <button class="chip gold" data-value="25">25</button>
@@ -48,7 +45,6 @@
     </div>
   </div>
 
-  <!-- HISTORY (PREVIOUS MODE: SEPARATE PANEL) -->
   <div class="history">
     <div class="history-title">HISTORY</div>
     <ul id="historyList"></ul>
@@ -56,9 +52,6 @@
 
 </div>
 
-<!-- Script (cache-busted for GitHub Pages) -->
-<script src="script.js?v=3"></script>
-
+<script src="script.js?v=4"></script>
 </body>
 </html>
-
