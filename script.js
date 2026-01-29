@@ -1,19 +1,14 @@
 let total = 0;
-let history = [];
+let stack = [];
 let historyTotals = [];
 
 const totalDisplay = document.getElementById("total");
 const rakeDisplay = document.getElementById("rake");
 const historyList = document.getElementById("historyList");
 
-/* SAFETY CHECK */
-if (!historyList) {
-  console.error("History list not found");
-}
-
-/* SOUND */
+/* Sound */
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-function coinSound(freq) {
+function coin(freq) {
   const osc = audioCtx.createOscillator();
   const gain = audioCtx.createGain();
   osc.type = "triangle";
@@ -24,7 +19,16 @@ function coinSound(freq) {
   osc.stop(audioCtx.currentTime + 0.1);
 }
 
-const notes = { 5:400, 10:450, 15:500, 20:550, 25:600, 50:700, 100:850 };
+/* Updated notes (added 1) */
+const notes = {
+  1: 300,
+  5: 380,
+  10: 450,
+  20: 550,
+  25: 600,
+  50: 700,
+  100: 850
+};
 
 function updateDisplay() {
   totalDisplay.innerText = total;
@@ -40,34 +44,34 @@ function updateHistory() {
   });
 }
 
-/* CHIP INPUT */
+/* Chip buttons */
 document.querySelectorAll(".chip").forEach(btn => {
   btn.addEventListener("click", () => {
     const value = Number(btn.dataset.value);
-    coinSound(notes[value]);
+    coin(notes[value]);
     total += value;
-    history.push(value);
+    stack.push(value);
     updateDisplay();
   });
 });
 
-/* CLEAR (THIS IS WHAT ADDS TO HISTORY) */
+/* AC */
 document.getElementById("clear").addEventListener("click", () => {
   if (total > 0) {
     historyTotals.push(total);
     updateHistory();
   }
-  coinSound(250);
+  coin(200);
   total = 0;
-  history = [];
+  stack = [];
   updateDisplay();
 });
 
-/* BACK */
+/* Back */
 document.getElementById("back").addEventListener("click", () => {
-  if (history.length > 0) {
-    coinSound(320);
-    total -= history.pop();
+  if (stack.length) {
+    coin(320);
+    total -= stack.pop();
     updateDisplay();
   }
 });
